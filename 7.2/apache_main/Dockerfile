@@ -125,7 +125,7 @@ RUN ( \
   ) > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 RUN a2enmod rewrite expires && service apache2 restart
-CMD service mysql start
+CMD /usr/sbin/mysqld -u mysql
 
 #RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
 #  sleep 5 && \
