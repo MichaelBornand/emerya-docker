@@ -125,12 +125,12 @@ RUN ( \
   ) > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 RUN a2enmod rewrite expires && service apache2 restart
-RUN service mysql start
+CMD service mysql start
 
-RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
-  sleep 5 && \
-  mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}" && \
-  mysql -u root -e "GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION ;"
+#RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
+#  sleep 5 && \
+#  mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}" && \
+#  mysql -u root -e "GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION ;"
 
 
 # Installation PHPMD
