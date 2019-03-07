@@ -153,4 +153,3 @@ ENTRYPOINT ["mysql-entrypoint.sh"]
 
 # Expose 80 for apache, 9000 for xdebug
 EXPOSE 80 9000
-CMD ["mysqld"]
