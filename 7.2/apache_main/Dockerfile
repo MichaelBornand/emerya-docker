@@ -147,4 +147,4 @@ RUN chmod 600 /var/www/.ssh/
 # Expose 80 for apache, 9000 for xdebug
 EXPOSE 80 9000
 
-ENTRYPOINT service mysql start
+ENTRYPOINT service mysql start && /bin/bash
