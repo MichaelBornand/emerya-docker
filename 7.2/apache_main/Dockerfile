@@ -146,7 +146,11 @@ RUN mkdir /var/www/.ssh/
 RUN chown -R www-data:www-data /var/www/.ssh/
 RUN chmod 600 /var/www/.ssh/
 
+COPY mysql-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/mysql-entrypoint.sh
+RUN ln -s usr/local/bin/mysql-entrypoint.sh /entrypoint.sh # backwards compat
+ENTRYPOINT ["mysql-entrypoint.sh"]
+
 # Expose 80 for apache, 9000 for xdebug
 EXPOSE 80 9000
-
-ENTRYPOINT service mysql start && /bin/bash
+CMD ["mysqld"]
