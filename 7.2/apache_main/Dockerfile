@@ -1,6 +1,8 @@
 # Pull base image.
 FROM php:7.2-apache
 
+VOLUME /var/lib/mysql
+
 COPY config/php.ini /usr/local/etc/php/
 
 # ADD BASHRC CONFIG
