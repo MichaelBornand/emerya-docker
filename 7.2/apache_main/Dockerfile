@@ -125,7 +125,6 @@ RUN ( \
   ) > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 RUN a2enmod rewrite expires && service apache2 restart
-CMD /usr/sbin/mysqld -u mysql
 
 #RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
 #  sleep 5 && \
@@ -147,3 +146,5 @@ RUN chmod 600 /var/www/.ssh/
 
 # Expose 80 for apache, 9000 for xdebug
 EXPOSE 80 9000
+
+ENTRYPOINT service mysql start
