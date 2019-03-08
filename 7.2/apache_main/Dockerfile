@@ -1,8 +1,6 @@
 # Pull base image.
 FROM php:7.2-apache
 
-VOLUME /var/lib/mysql
-
 COPY config/php.ini /usr/local/etc/php/
 
 # ADD BASHRC CONFIG
@@ -164,6 +162,8 @@ RUN { \
 		| xargs -rt -0 sed -Ei 's/^(bind-address|log)/#&/' \
 # don't reverse lookup hostnames, they are usually another container
 	&& echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
+
+VOLUME /var/lib/mysql
 
 COPY mysql-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/mysql-entrypoint.sh
