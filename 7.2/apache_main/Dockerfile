@@ -32,7 +32,6 @@ RUN apt-get update && apt-get install --fix-missing -y \
   libyaml-dev \
   linux-libc-dev \
   mysql-client \
-  mysql-server \
   nano \
   ruby-dev \
   rubygems \
